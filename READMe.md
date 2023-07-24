@@ -15,7 +15,7 @@ swing-snakeGame
 |_______README.md
 ```
 
-4. Open IntelliJ in the swing-snakeGame just by `Code .` in Bash or CMD
+4. Open IntelliJ in the SnakeGame or in Bash or CMD
 ## To Compile:
 
 Compile the java program
@@ -24,5 +24,5 @@ javac SnakeGame/*.java
 ```
 Run the game
 ```bash
-java SnakeGame/SnakeMain
+java SnakeGame
 ```
