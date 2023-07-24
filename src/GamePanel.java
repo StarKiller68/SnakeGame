@@ -1,11 +1,12 @@
 import javax.swing.*;
+import javax.swing.Timer;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.util.*;
-import java.util.Timer;
+
 
 public class GamePanel extends JPanel implements ActionListener {
     static final int SCREEN_WIDTH = 600;
@@ -27,15 +28,30 @@ public class GamePanel extends JPanel implements ActionListener {
 
 
     GamePanel() {
-
+        random = new Random();
+        this.setPreferredSize(new Dimension(SCREEN_WIDTH, SCREEN_HEIGHT));
+        this.setBackground(Color.black);
+        this.setFocusable(true);
+        this.addKeyListener(new myKeyAdapter());
+        startGame();
     }
     public void startGame(){
-
+        newApple();
+        running = true;
+        timer = new Timer(DELAY,this);
+        timer.start();
     }
     public void paintComponent(Graphics g){
-
+        super.paintComponent(g);
+        draw(g);
     }
     public void draw(Graphics g){
+        for(int i = 0; i < SCREEN_HEIGHT/UNIT_SIZE;i++){
+            g.drawLine(i*UNIT_SIZE,0,i*UNIT_SIZE,SCREEN_HEIGHT);
+            g.drawLine(0,i*UNIT_SIZE,SCREEN_WIDTH,i*UNIT_SIZE);
+        }
+    }
+    public void newApple(){
 
     }
     public void move(){
@@ -54,7 +70,7 @@ public class GamePanel extends JPanel implements ActionListener {
 
     }
 
-    public class keyAdapter extends KeyAdapter{
+    public class myKeyAdapter extends KeyAdapter{
         @Override
         public void keyPressed(KeyEvent e){
 
