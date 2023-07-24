@@ -8,6 +8,7 @@ import java.util.*;
 
 public class GamePanel extends JPanel implements ActionListener {
     public static int SCREEN_WIDTH = 600;
+    public static int SCREEN_HEIGHT = 600;
 
     GamePanel() {
 
